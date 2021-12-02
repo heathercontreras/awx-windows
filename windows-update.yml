@@ -21,9 +21,4 @@
     - win_reboot:
       when: result.reboot_required
 
-    - name: Install Firefox
-      win_chocolatey:
-        name: firefox
-        state: present
-
-    
+  
