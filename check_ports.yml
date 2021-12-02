@@ -1,10 +1,25 @@
-- name: Check all port numbers are accessible from the current host
-  wait_for:
-    host: Redtag - servers
-    port: "{{ item }}"
-    state: started         # Port should be open
-    delay: 0               # No wait before first check (sec)
-    timeout: 3             # Stop checking after timeout (sec)
-  ignore_errors: yes
-  with_items:
-    - 22
+---
+- hosts: localhost
+  vars:
+    servers:
+      - name: 10.10.10.10
+        protocol: tcp
+        ports:
+          - 22
+          - 80
+          - 443
+          - 2222
+#      - name: node01.some.fancy.domain
+      - name: 10.1.1.1
+        protocol: udp
+        ports:
+          - 135
+          - 139
+#      - name: node10.something.else
+      - name: 10.1.1.10
+        protocol: tcp
+        ports:
+          - 81
+          - 2201
+  roles:
+    - salimchehab.check_ports
