@@ -1,25 +1,9 @@
 ---
-- hosts: localhost
+- hosts: all
   vars:
     servers:
-      - name: 10.10.10.10
+      - name: Check Ports
         protocol: tcp
         ports:
           - 22
-          - 80
-          - 443
-          - 2222
-#      - name: node01.some.fancy.domain
-      - name: 10.1.1.1
-        protocol: udp
-        ports:
-          - 135
-          - 139
-#      - name: node10.something.else
-      - name: 10.1.1.10
-        protocol: tcp
-        ports:
-          - 81
-          - 2201
-  roles:
-    - salimchehab.check_ports
+
