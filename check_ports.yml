@@ -1,9 +1,5 @@
 ---
 - hosts: all
-  vars:
-    servers:
-      - name: Check Ports
-        protocol: tcp
-        ports:
-          - 22
-
+  tasks:
+    - wait_for: host=remote.host port=22 timeout=1
+    - debug: msg=ok
